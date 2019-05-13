@@ -11,6 +11,7 @@ extern "C" {
 #include <unistd.h>
 #include <signal.h>
 #include <syscall.h>
+#include <pthread.h>
 
 #define BT_BUF_SIZE 1024    // should be larger enough to hold the call stack info
 

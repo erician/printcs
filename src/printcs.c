@@ -22,7 +22,7 @@ void printcs(void) {
     char sys_command[256];
     printf("the call stack is: \n");
     for (i = 0; i < nptrs; i++) {
-        printf("[call stack] #%d pid: %ld\n", i, syscall(SYS_gettid));
+        printf("[call stack] #%d pid: %ld\n", i, pthread_self());
         sprintf(sys_command, "addr2line %p -e %s -f -s -p ", \
         buffer[i], exefile_name);
         system(sys_command);
@@ -33,7 +33,7 @@ void printcs(void) {
 
 void __printcs(int signo) {
     printcs();
-    exit(-1);
+    exit(signo);
 }
 
 void register_printcs_with_signal(unsigned long int signo) {
