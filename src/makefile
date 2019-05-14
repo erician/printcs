@@ -11,11 +11,9 @@ CFLAGS = -g -Wall -Wno-unused -Wno-sign-compare -I.
 
 printcs-segmentfault-test: printcs_segmentfault_test.o printcs.o
 	$(LD) $(CFLAGS) -o $@ $^ $(LIBS)
-	./printcs-segmentfault-test
 
 printcs-test: printcs_test.o printcs.o
 	$(LD) $(CFLAGS) -o $@ $^ $(LIBS)
-	./printcs-test
 
 printcs_segmentfault_test.o: printcs_segmentfault_test.cc
 	$(CC) $(CFLAGS) -c -o $@ $<
